@@ -202,10 +202,9 @@ public class ExcelTools {
 	 * 2007
 	 * @throws Exception 
 	 */
-	public void getExtractionSheets07Data(XSSFWorkbook workbook, XSSFSheet sheet, Map<String,Object> map) throws Exception{
+	public void getExtractionSheets07Data(XSSFWorkbook workbook, Map<String,Object> map) throws Exception{
 	
-		Map<String, List<List<String>>> sheets = new HashMap<>();
-		sheets = (Map<String,List<List<String>>>) map.get(ExtractionInstruction.EXTRACTION_SHEETS);
+		Map<String, List<List<String>>> sheets = (Map<String,List<List<String>>>) map.get(ExtractionInstruction.EXTRACTION_SHEETS);
 		if(sheets != null && !sheets.isEmpty()) {
 			Set<String> keySet = sheets.keySet();
 	    	for(String key:keySet){
@@ -266,15 +265,7 @@ public class ExcelTools {
 		}
 		
 	}
-		
-	/**
-	 * write data into excel
-	 * 2007
-	 * @param workbook
-	 * @param key
-	 * @param values
-	 * @throws Exception
-	 */
+
      private  void processXSSFSheet(XSSFWorkbook workbook, String key, List<List<String>> values) throws Exception{
     	 XSSFSheet sheet = null;
     	 XSSFRow row = null;
