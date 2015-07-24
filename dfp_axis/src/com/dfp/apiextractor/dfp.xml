@@ -1,0 +1,63 @@
+<Proposal id="10700" service="ProposalServiceInterface" method="getProposalsByStatement" macro="proposal">
+	<DateTime field="startDateTime"/>
+	<DateTime field="lastModifiedDateTime"/>
+	<ProposalCompanyAssociation field="agencies" macro="agency" list="*">
+		<Contact idField="contactIds" list="0,1" service="ContactServiceInterface" method="getContactsByStatement" macro="contact">
+				<String field="name" macro="name"/>
+				<String field="address" macro="address" />
+				<String field="cellPhone" macro="cell_phone"/>
+		</Contact>
+	</ProposalCompanyAssociation>
+	<ProposalLineItem parentField="proposalId" service="ProposalLineItemServiceInterface" method="getProposalLineItemsByStatement" list="sheets">
+		<String field="name"/>
+		<DateTime field="startDateTime"/>
+		<String field="rateType"/>
+		<Boolean field="isSold"/>
+		<Money field="baseRate"/>
+	</ProposalLineItem>
+<!--Advertiser的配置
+	<ProposalCompanyAssociation field="Advertiser">
+		<Contact idField="ContactIds#0" service="ContactServiceInterface" method="getContactsByStatement">
+				<String field="Name" macro="%%%proposal_Adversiter_contact_name"/>
+				<String field="Address" macro="%%%proposal_Adversiter_contact_address" />
+		</Contact>
+	</ProposalCompanyAssociation>
+
+	<ProposalCompanyAssociation field="Advertiser">
+		<Contact idField="ContactIds!" list="0,1" service="ContactServiceInterface" method="getContactsByStatement">
+				<String field="Name" macro="%%%proposal_Advertiser_contact_name"/>
+				<String field="Address" macro="%%%proposal_Advertiser_contact_address" />
+		</Contact>
+	</ProposalCompanyAssociation>
+-->
+
+<!--Agencies的配置
+	<ProposalCompanyAssociation field="Agencies!" list="1">
+		<Contact idField="ContactIds!" list="0,1" service="ContactServiceInterface" method="getContactsByStatement">
+				<String field="Name" macro="%%%proposal_Agencies_contact_name"/>
+				<String field="Address" macro="%%%proposal_Agencies_contact_address" />
+		</Contact>
+	</ProposalCompanyAssociation>
+
+	<ProposalCompanyAssociation field="Agencies!" list="0,1">
+		<Contact idField="ContactIds#0" service="ContactServiceInterface" method="getContactsByStatement">
+				<String field="Name" macro="%%%proposal_Agencies_contact_name"/>
+				<String field="Address" macro="%%%proposal_Agencies_contact_address" />
+		</Contact>
+	</ProposalCompanyAssociation>
+
+	<ProposalCompanyAssociation field="Agencies#0" >
+		<Contact idField="ContactIds#0" service="ContactServiceInterface" method="getContactsByStatement">
+				<String field="Name" macro="%%%proposal_Agencies_contact_name"/>
+				<String field="Address" macro="%%%proposal_Agencies_contact_address" />
+		</Contact>
+	</ProposalCompanyAssociation>
+
+	<ProposalCompanyAssociation field="Agencies#0" >
+		<Contact idField="ContactIds!" list="0,1" service="ContactServiceInterface" method="getContactsByStatement">
+				<String field="Name" macro="%%%proposal_Agencies_contact_name"/>
+				<String field="Address" macro="%%%proposal_Agencies_contact_address" />
+		</Contact>
+	</ProposalCompanyAssociation>
+-->
+</Proposal>
